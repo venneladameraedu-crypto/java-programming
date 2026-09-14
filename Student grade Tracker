@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> marks = new ArrayList<>();
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter marks for student " + (i + 1) + ": ");
+            marks.add(sc.nextInt());
+        }
+
+        int sum = 0;
+        int high = marks.get(0);
+        int low = marks.get(0);
+
+        for (int m : marks) {
+            sum += m;
+
+            if (m > high)
+                high = m;
+
+            if (m < low)
+                low = m;
+        }
+
+        System.out.println("\nMarks: " + marks);
+        System.out.println("Average: " + (sum / (double) n));
+        System.out.println("Highest: " + high);
+        System.out.println("Lowest: " + low);
+
+        sc.close();
+    }
+}
